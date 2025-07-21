@@ -20,7 +20,12 @@ function sortear() {
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`;
 
-    limparCampodoUsuario()
+    document.getElementById("btn-reiniciar").removeAttribute("disabled")
+}
+
+function resultado1() {
+    let reiniciado = document.getElementById("resultado");
+    reiniciado.innerHTML = `<label class="texto__paragrafo">Novo Sorteio</label>`;
 }
 
 function obterNúmeroAleatorio(min, max) {
@@ -36,4 +41,10 @@ function limparCampodoUsuario() {
     quantidade.value = "";
     de.value = "";
     ate.value = "";
+}
+
+function reiniciar() {
+    limparCampodoUsuario();
+    resultado1();
+    document.getElementById('btn-reiniciar').setAttribute('disabled', true);
 }
