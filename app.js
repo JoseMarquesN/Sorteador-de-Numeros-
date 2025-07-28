@@ -3,6 +3,17 @@ function sortear() {
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
 
+    if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        return;
+    }
+    
+    if (de >= ate) {
+        alert('Reveja os números colocados');
+        document.getElementById("resultado").innerHTML = `<label class="texto__paragrafo">Erro Digite um número Correto</label>`;
+        return;
+    }
+
     let sorteados = [];
     let numero;
 
@@ -34,13 +45,9 @@ function obterNúmeroAleatorio(min, max) {
 }
 
 function limparCampodoUsuario() {
-    quantidade = document.getElementById("quantidade");
-    de = document.getElementById("de");
-    ate = document.getElementById("ate");
-
-    quantidade.value = "";
-    de.value = "";
-    ate.value = "";
+    document.getElementById("quantidade").value = "";
+    document.getElementById("de").value = "";
+    document.getElementById("ate").value = "";
 }
 
 function reiniciar() {
